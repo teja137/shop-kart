@@ -1,0 +1,51 @@
+<div *ngIf = "isLoading" class="text-center mt-5">
+    <app-spinner></app-spinner>
+    <div class="text-danger">Loading....</div>
+</div>
+<div class="alert alert-danger" *ngIf = "error">
+  {{ error }}
+</div>
+<div class="alert alert-success" *ngIf = "message">
+    {{ message }}
+  </div>
+<div class="col-md-4 offset-md-4 mt-4">
+    <div class="card">
+        <div class="card-header">
+           <div class="text-primary text-center fw-bold">
+            Add Product
+           </div>
+        </div>
+        <div class="card-body">
+            <form #addProductForm = "ngForm" (ngSubmit) = "onSubmit(addProductForm)">
+                <div class="form-group">
+                    <label for="productname" class="form-label">Product Name</label>
+                    <input type="text" class="form-control"
+                           ngModel name="productName"
+                           #productName = "ngModel">
+                </div>
+                <div class="form-group">
+                    <label for="productPrice" class="form-label">Product Price</label>
+                    <input type="number" class="form-control"
+                           ngModel name="productPrice"
+                           #productPrice = "ngModel">
+                </div>
+                <div class="form-group">
+                    <label for="productImageURL" class="form-label">Product ImageURL</label>
+                    <input type="text" class="form-control"
+                           ngModel name="productImageURL"
+                           #productImageURL = "ngModel">
+                </div>
+                <div class="form-group">
+                    <label for="productDescription" class="form-label">Product Description</label>
+                    <input type="text" class="form-control"
+                           ngModel name="productDescription"
+                           #productDescription = "ngModel">
+                </div>
+                <div class="card-footer">
+                        <button type="submit" class="btn btn-primary ms-5 me-2">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
